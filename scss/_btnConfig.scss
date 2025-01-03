@@ -1,0 +1,23 @@
+@use 'utilities' as util;
+@use 'config' as config;
+@use 'sass:color';
+
+@mixin button-styles($bg-color, $text-color) {
+  display: inline-block;
+  border-radius: config.$border-radius;
+  padding: config.$padding;
+  margin: config.$margin;
+  background-color: $bg-color;
+  color: $text-color;
+  &:hover {
+    transform: scale(0.8);
+  }
+}
+
+.btn-primary {
+  @include button-styles(color.adjust(config.$primary-color, $lightness: 10%), config.$text-color);
+}
+
+.btn-secondary {
+  @include button-styles(config.$secondary-color, config.$text-color);
+}
